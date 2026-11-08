@@ -1,0 +1,81 @@
+import pygame
+
+
+
+
+RED = (255,0,0)
+GREEN = (0,255,0)
+GREEN2 = (20,220,50)
+BLUE = (0,0,255)
+YELLOW = (255,255,0)
+YELLOW2 = (220,220,30)
+BLACK = (0,0,0)
+WHITE = (255,255,255)
+
+def CreateText(msg,font,fs,x,y,tc):
+    Text = pygame.font.SysFont(font, fs)
+    textSurf = Text.render(msg, True, tc)
+    textRect = textSurf.get_rect()
+    textRect.center = (x,y)
+    screen.blit(textSurf, textRect)
+
+def button(msg,x,y,w,h,c,tc,highlight,dt = False,tegevus = None):
+    mouse = pygame.mouse.get_pos()
+    click = pygame.mouse.get_pressed()
+    
+    if x+w > mouse[0] > x and y+h > mouse[1] > y:
+        pygame.draw.rect(screen, highlight, (x, y, w, h))
+        
+        if click[0] == 1 and tegevus != None:
+            tegevus()
+    else:
+        pygame.draw.rect(screen, c, (x, y, w, h))
+    
+    if dt == True:
+        CreateText(msg, "Verdana", 30, x+(w/2)+1,y+(h/2)+1, BLACK)
+    CreateText(msg, "Verdana", 30, x+(w/2) ,y+(h/2) ,tc)
+
+def gameselect(name,x,y,img = None, tegevus = None):
+    mouse = pygame.mouse.get_pos()
+    click = pygame.mouse.get_pressed()
+    
+    if x+250 > mouse[0] > x and y+250 > mouse[1] > y:
+        pygame.draw.rect(screen, (200,0,200), (x, y, 250, 250))
+        
+        if click[0] == 1 and tegevus != None:
+            tegevus()
+    else:
+        pygame.draw.rect(screen, (220,20,220), (x, y, 250, 250))
+    
+    CreateText(name, "Verdana", 30, x+125 ,y-20 ,BLACK)
+    if img == None:
+        CreateText("Pilt", "Verdana", 30, x+125 ,y+125 ,WHITE)
+        
+pygame.init()
+screen = pygame.display.set_mode((1000, 800), pygame.RESIZABLE)
+
+def Menu():
+    Menu = True
+
+    while Menu:
+        
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                running = False
+        
+        width, height = screen.get_size()
+        
+        
+        #joonista taust
+        screen.fill(WHITE)
+        
+        #hiir
+        mouse = pygame.mouse.get_pos()
+        
+        gameselect("Game 1",width/2-300,height/2-125)
+        gameselect("Game 2",width/2+50,height/2-125)
+        button("Back",50,height - 100,100,50,YELLOW2,WHITE,YELLOW,True)
+        
+        pygame.display.flip()
+        pygame.display.update()
+Menu()
