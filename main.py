@@ -5,6 +5,7 @@ from gameselector import GameSelector
 pygame.init()
 
 state = 0
+#poolik menüühaldus
 while state != -1:
     if state == 0:
         if peamenüü() != None:

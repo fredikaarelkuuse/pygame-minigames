@@ -1,9 +1,12 @@
+# Mäng 1 - pygame
+# Autorid: Mihkel Põldvere, Fredi Kaarel Kuuse
 import pygame
 import random
 
 screen = pygame.display.set_mode((1000, 800), pygame.RESIZABLE)
 score = 0
 
+#värvid
 RED = (255,0,0)
 GREEN = (0,255,0)
 GREEN2 = (20,220,50)
@@ -20,6 +23,7 @@ targets = {
 ,    "hard1": {"Idle": True, "Value": 10, "Speed": 1, "Size": [20,20], "Location": [-100,-100], "Color": RED, "HCOLOR": BLACK},
 }
 
+#teksti loomine
 def CreateText(msg,font,fs,x,y,tc):
     Text = pygame.font.SysFont(font, fs)
     textSurf = Text.render(msg, True, tc)
@@ -27,10 +31,12 @@ def CreateText(msg,font,fs,x,y,tc):
     textRect.center = (x,y)
     screen.blit(textSurf, textRect)
 
+#nupu loomine
 def button(msg,x,y,w,h,c,tc,highlight,dt = False,tegevus = None):
     mouse = pygame.mouse.get_pos()
     click = pygame.mouse.get_pressed()
     
+    #kas kursor on objekti kohal
     if x+w > mouse[0] > x and y+h > mouse[1] > y:
         pygame.draw.rect(screen, highlight, (x, y, w, h))
         
@@ -39,14 +45,17 @@ def button(msg,x,y,w,h,c,tc,highlight,dt = False,tegevus = None):
     else:
         pygame.draw.rect(screen, c, (x, y, w, h))
     
+    #teksti vari
     if dt == True:
         CreateText(msg, "Verdana", 30, x+(w/2)+1,y+(h/2)+1, BLACK)
     CreateText(msg, "Verdana", 30, x+(w/2) ,y+(h/2) ,tc)
 
+#sihtmärgi joonistamine
 def item(x,y,w,h,color,hcolor,p):
     mouse = pygame.mouse.get_pos()
     click = pygame.mouse.get_pressed()
     
+    #kas kursor on objekti kohal
     if x+w > mouse[0] > x and y+h > mouse[1] > y:
         pygame.draw.rect(screen, hcolor, (x, y, w, h))
         
@@ -54,16 +63,20 @@ def item(x,y,w,h,color,hcolor,p):
             reset_target(p)
     else:
         pygame.draw.rect(screen, color, (x, y, w, h))
-        
+
+#sihtmärgi 'resetimine' kui sellele pihta saadakse
 def reset_target(t):
     global score
+    #punktid
     score += targets[t]["Value"]
-    targets[t]["Idle"] = True
-    targets[t]["Location"] = [-100,-100]
+    
+    #targets[t]["Idle"] = True
+    targets[t]["Location"] = [random.randint(25, screen.get_size()[0] - 50),-targets[t]["Size"][1]]
     
 pygame.init()
 #screen = pygame.display.set_mode((1000, 800), pygame.RESIZABLE)
 
+#peafunktsioon
 def game_aim():
     AimTraining = True
     global targets
@@ -80,7 +93,10 @@ def game_aim():
         screen.fill(WHITE)
         
         #implementeerida miinuspunkti lisamine möödavajutuse eest
+        
+        #sihtmärgite haldus
         for target in targets:
+            # Idle on ebavajalik, hiljem kaotada
             if targets[target]["Idle"]:
                 #test väärtused, hiljem muuta
                 targets[target]["Location"] = [random.randint(25, width - 50),-110]
@@ -99,10 +115,9 @@ def game_aim():
         #hiir
         mouse = pygame.mouse.get_pos()
         
-        #item(20,20,100,50,YELLOW2,YELLOW,2)
+        #nupud ja menüüelemendid
         button("Back",50,height - 100,100,50,YELLOW2,WHITE,YELLOW,True)
         CreateText("Score: " + str(score), "Verdana", 24, 60,10 ,BLACK)
         
-        pygame.display.flip()
         pygame.display.update()
 game_aim()
