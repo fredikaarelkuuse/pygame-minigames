@@ -1,5 +1,6 @@
 import pygame
 import sys
+from gameselector import GameSelector
 pygame.init()
 
 valge = (255, 255, 255)
@@ -13,6 +14,8 @@ ekraan = pygame.display.set_mode((960, 540), pygame.RESIZABLE)
 pygame.display.set_caption("Peamenüü")
 
 def mänguvalik(): #siit järgmisele lehele
+    GameSelector()
+    """
     print("Hello world!")
     pygame.display.set_caption("Vali mäng!") 
     while True:
@@ -23,6 +26,7 @@ def mänguvalik(): #siit järgmisele lehele
 
         ekraan.fill(valge)
         pygame.display.update()
+    """
 
 def valikud(): #valikud siia
     pygame.display.set_caption("Sätted")
@@ -76,13 +80,15 @@ def peamenüü():
             # see tuvastab praegu igat vajutust (M2 ja scroll wheel ka)
             if juhtum.type == pygame.MOUSEBUTTONDOWN:
                 if mängi_nupp.collidepoint(hiire_pos):
-                    mänguvalik()
+                    #mänguvalik()
+                    return 1
                 if valikud_nupp.collidepoint(hiire_pos):
                     valikud()
                 if välju_nupp.collidepoint(hiire_pos):
+                    return -1
                     pygame.quit()
                     sys.exit()
 
         pygame.display.update()
 
-peamenüü()
+#peamenüü()

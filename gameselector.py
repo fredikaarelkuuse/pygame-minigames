@@ -51,13 +51,14 @@ def gameselect(name,x,y,img = None, tegevus = None):
     if img == None:
         CreateText("Pilt", "Verdana", 30, x+125 ,y+125 ,WHITE)
         
-pygame.init()
+        
+#pygame.init()
 screen = pygame.display.set_mode((1000, 800), pygame.RESIZABLE)
 
-def Menu():
-    Menu = True
+def GameSelector():
+    GameSelector = True
 
-    while Menu:
+    while GameSelector:
         
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -78,4 +79,4 @@ def Menu():
         
         pygame.display.flip()
         pygame.display.update()
-Menu()
+#GameSelector()
