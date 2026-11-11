@@ -52,7 +52,7 @@ def gameselect(name,x,y,img = None, tegevus = None):
         CreateText("Pilt", "Verdana", 30, x+125 ,y+125 ,WHITE)
         
         
-#pygame.init()
+pygame.init()
 screen = pygame.display.set_mode((1000, 800), pygame.RESIZABLE)
 
 def GameSelector():
