@@ -1,3 +1,5 @@
+# Mäng 2 – Pygame
+# Autorid: Fredi Kaarel Kuuse, Mihkel Põldvere
 import pygame
 import sys
 import random
