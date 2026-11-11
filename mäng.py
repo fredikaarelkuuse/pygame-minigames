@@ -19,9 +19,9 @@ FPS = pygame.time.Clock() #Määran funktsiooni, mis tagab mängukiiruse ühtlus
 
 #Takistused on mitmekihilises hulgas, kus esimene pool on takistuse andmed ja teine pool nendes paikneva augu ehk värava andmed
 #Plaanin teha takistused vähem seaduspäraseks
-takistused = [[[laius, 0, 50, pikkus], [laius, random.randint(pikkus*0.2, pikkus*0.8), 50, 100]],
-              [[laius*0.5, 0, 50, pikkus], [laius*0.5, random.randint(pikkus*0.2, pikkus*0.8), 50, 100]],
-              [[laius*0.75, 0, 50, pikkus], [laius*0.75, random.randint(pikkus*0.2, pikkus*0.8), 50, 100]]]
+takistused = [[[laius, 0, 50, pikkus], [laius, random.uniform(pikkus*0.2, pikkus*0.8), 50, 100]],
+              [[laius*0.5, 0, 50, pikkus], [laius*0.5, random.uniform(pikkus*0.2, pikkus*0.8), 50, 100]],
+              [[laius*0.75, 0, 50, pikkus], [laius*0.75, random.uniform(pikkus*0.2, pikkus*0.8), 50, 100]]]
 
 #Tsoonid on paaris järjendid, kus üks on mängijale ohtlik ja teine tagab turvalisuse
 #Neid kirjutatakse pidevalt üle
