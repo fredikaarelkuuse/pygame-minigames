@@ -93,4 +93,4 @@ def GameSelector():
         
         #uuenda ekraanil toimuvat
         pygame.display.update()
-#GameSelector()
+GameSelector()
