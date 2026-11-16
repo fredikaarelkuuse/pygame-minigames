@@ -77,8 +77,7 @@ pygame.init()
 #screen = pygame.display.set_mode((1000, 800), pygame.RESIZABLE)
 
 #def backtomenu():
-    #ValiMäng()
-    #AimTraining = False
+
 #peafunktsioon
 def AimTraining():
     AimTraining = True
@@ -125,7 +124,7 @@ def AimTraining():
         
         #nupud ja menüüelemendid
         #skoori paiknemine ülevaadata, praegu ajutine fix
-        button("Tagasi",50,height - 100,100,50,YELLOW2,WHITE,YELLOW,True, backtomenu)
+        button("Tagasi",50,height - 100,100,50,YELLOW2,WHITE,YELLOW,True)
         CreateText("Score: " + str(score), "Verdana", 24, 60 + 6*len(str(score)),10 ,BLACK)
         
         pygame.display.update()

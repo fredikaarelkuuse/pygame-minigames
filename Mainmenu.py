@@ -3,7 +3,7 @@
 import pygame
 import sys
 from game1 import AimTraining
-from mäng import mängi
+#from mäng import mängi
 pygame.init()
 
 
@@ -90,7 +90,7 @@ def game_aim():
     AimTraining()
 def game_flappy():
     MänguValik = False
-    mängi()
+    #mängi()
 #Stardimenüü/peamenüü osa
 def Menüü():
     Menüü = True
@@ -143,7 +143,7 @@ def MänguValik():
         #nupud
         #nimi ajutine
         gameselect("Aimtraining",width/2-300,height/2-125,None, game_aim)
-        gameselect("Game 2",width/2+50,height/2-125)
+        gameselect("Game 2",width/2+50,height/2-125,None, game_flappy)
         button("Tagasi",50,height - 100,100,50,YELLOW2,WHITE,YELLOW,True,TagasiMenyysse)
         
         #uuenda ekraanil toimuvat

@@ -65,7 +65,7 @@ def kaotus(): #Kutsutakse välja kui mängija kaotab ja "jäätab" ekraani. Hilj
                 pygame.quit()
                 sys.exit()
         FPS.tick(60) #60 kaadrit sekundis
-                
+
 while True: #Põhitsükkel
     ekraan.fill(helekollane)
 
