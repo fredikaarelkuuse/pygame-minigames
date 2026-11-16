@@ -12,5 +12,6 @@ AI-d kasutasime vaid main.py juures. See pidi tegema nii, et menüüs saaks edas
 # Kasutusjuhend:
 ~~Mängude mängimiseks tuleb hetkel käivitada kas game1.py või mäng.py
 Mängu valimise menüü (gameselector.py) ja peamenüü (Peamenüü.py) on mõlemad implementeeritud, kuid nende vahel liikumine aga mitte.~~
+
 README.md failis on ajakohane kasutusjuhend
 
