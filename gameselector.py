@@ -1,6 +1,7 @@
 # Mängu valimise menüü - pygame
 # Autorid: Mihkel Põldvere, Fredi Kaarel Kuuse
 import pygame
+#from Peamenüü import peamenüü
 
 
 
@@ -66,8 +67,13 @@ def gameselect(name,x,y,img = None, tegevus = None):
 pygame.init()
 screen = pygame.display.set_mode((1000, 800), pygame.RESIZABLE)
 
+#funktsioon 'tagasi' nupu jaoks
+def TagasiMenyysse():
+    GameSelector = False
+    
 #põhifunktsioon
 def GameSelector():
+    peamenüü()
     GameSelector = True
 
     while GameSelector:
@@ -89,7 +95,7 @@ def GameSelector():
         #nupud
         gameselect("Game 1",width/2-300,height/2-125)
         gameselect("Game 2",width/2+50,height/2-125)
-        button("Back",50,height - 100,100,50,YELLOW2,WHITE,YELLOW,True)
+        button("Tagasi",50,height - 100,100,50,YELLOW2,WHITE,YELLOW,True,TagasiMenyysse)
         
         #uuenda ekraanil toimuvat
         pygame.display.update()

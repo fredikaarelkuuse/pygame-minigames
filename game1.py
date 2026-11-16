@@ -76,8 +76,11 @@ def reset_target(t):
 pygame.init()
 #screen = pygame.display.set_mode((1000, 800), pygame.RESIZABLE)
 
+#def backtomenu():
+    #ValiMäng()
+    #AimTraining = False
 #peafunktsioon
-def game_aim():
+def AimTraining():
     AimTraining = True
     global targets
     global score
@@ -122,8 +125,8 @@ def game_aim():
         
         #nupud ja menüüelemendid
         #skoori paiknemine ülevaadata, praegu ajutine fix
-        button("Back",50,height - 100,100,50,YELLOW2,WHITE,YELLOW,True)
+        button("Tagasi",50,height - 100,100,50,YELLOW2,WHITE,YELLOW,True, backtomenu)
         CreateText("Score: " + str(score), "Verdana", 24, 60 + 6*len(str(score)),10 ,BLACK)
         
         pygame.display.update()
-game_aim()
+#AimTraining()

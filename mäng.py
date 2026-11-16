@@ -11,6 +11,7 @@ roheline = (0, 255, 0)
 punane = (255, 0, 0)
 sinine = (0, 0, 255)
 
+
 ekraan = pygame.display.set_mode((960, 540)) #Objektide suurus vastavalt ekraani suurusele pole veel lisatud, aga on plaanis
 laius, pikkus = ekraan.get_size()
 pygame.display.set_caption("Mäng 2")
